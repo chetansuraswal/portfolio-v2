@@ -122,11 +122,11 @@ All creative assets, branding, and documentation are protected unless explicitly
 
 Website: GitHub Pages
 
-Instagram: *(Add your Instagram link)*
+Instagram: *(https://www.instagram.com/chetansuraswal/?hl=en)*
 
-Email: *(Add your professional email)*
+Email: *(chetansuraswal@gmail.com)*
 
-GitHub: https://github.com/Chetan0075
+GitHub: https://github.com/chetansuraswal
 
 ---
 
