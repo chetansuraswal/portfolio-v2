@@ -1,0 +1,314 @@
+/* --- Variables & Reset --- */
+:root {
+    --bg-color: #FBFBFD; /* Apple Milky White */
+    --text-color: #1D1D1F; /* Soft Charcoal */
+    --text-secondary: #86868B;
+    --font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --transition-speed: 0.4s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Typography --- */
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* --- Layout & Navigation --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 8rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(251, 251, 253, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--text-secondary);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 4rem; /* Offset for navbar */
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.cta-btn:hover {
+    transform: scale(1.02);
+    background-color: #000000;
+}
+
+/* --- Work Section (Grid) --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #E5E5EA;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    overflow: hidden; /* Keeps iframe corners rounded */
+}
+
+.video-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.video-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.video-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- About & Contact --- */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.contact {
+    text-align: center;
+}
+
+.email-link {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 2rem 0;
+    transition: color var(--transition-speed);
+}
+
+.email-link:hover {
+    color: var(--text-secondary);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--text-secondary);
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* --- Scroll Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .video-grid { grid-template-columns: 1fr; }
+    .navbar { padding: 1.5rem 2rem; }
+}
+
+/* --- Work Section (Grids & Thumbnails) --- */
+.sub-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 5rem 0 2rem 0;
+    text-align: center;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 3rem;
+}
+
+.vertical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    background-color: #E5E5EA; /* Light gray fallback */
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Aspect Ratios */
+.video-placeholder.landscape {
+    aspect-ratio: 16 / 9;
+}
+
+.video-placeholder.vertical {
+    aspect-ratio: 9 / 16;
+}
+
+/* Custom Thumbnail Image */
+.custom-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the space without stretching */
+    z-index: 2;
+}
+
+.video-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.video-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.video-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+    .video-grid { grid-template-columns: 1fr; }
+    .vertical-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
